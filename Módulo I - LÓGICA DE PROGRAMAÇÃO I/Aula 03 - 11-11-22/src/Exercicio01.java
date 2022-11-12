@@ -21,7 +21,8 @@ public class Exercicio01
                 verifica++;
             }
         }
-        if (verifica == 0)
+
+        if (verifica == 0 && Math.abs(n) != 1 && n != 0)
         {
             System.out.printf("O número %d é primo", n);
         }
