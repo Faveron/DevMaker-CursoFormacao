@@ -17,8 +17,6 @@ public class Exercicio03
         System.out.print("Digite o tamanho da matriz quadrada (menor ou igual a 20): ");
         int N = entrada.nextInt();
 
-        int [][] A = new int[N][N];
-
         for (int i = 0; i < N; i++)
         {
             for (int j = 0; j < N; j++)
