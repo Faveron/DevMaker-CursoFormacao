@@ -21,6 +21,7 @@ public class Tarefa01
 
         for (int i = 0; i < turma.length; i++)
         {
+            System.out.println();
             System.out.printf("Digite a matricula do %dº aluno: ", i+1);
             matricula = entrada.nextInt();
 
@@ -31,7 +32,7 @@ public class Tarefa01
             }
             limparBuffer(entrada);
 
-            turma[i] = new Aluno(matricula, notas[0], notas[1], notas[2], notas[3]);
+            turma[i] = new Aluno(matricula, notas);
         }
 
         imprimeAlunos(turma);
@@ -39,7 +40,7 @@ public class Tarefa01
         for (int i = 0; i < turma.length; i++)
         {
             System.out.printf("\nMatricula do %dº aluno: %s\n", i+1, turma[i].matricula);
-            System.out.printf("Média do %dº aluno: %.1f\n", i+1, mediaAluno(turma[i]));
+            System.out.printf("Média: %.1f\n", mediaAluno(turma[i]));
         }
     }
 
@@ -49,16 +50,22 @@ public class Tarefa01
         for (int i = 0; i < a.length; i++)
         {
             System.out.printf("\nMatricula do %dº aluno: %s", i+1, a[i].matricula);
-            System.out.printf("\nNota do 1º bimestre: %.1f", a[i].nota1);
-            System.out.printf("\nNota do 2º bimestre: %.1f", a[i].nota2);
-            System.out.printf("\nNota do 3º bimestre: %.1f", a[i].nota3);
-            System.out.printf("\nNota do 4º bimestre: %.1f", a[i].nota4);
+            for (int j = 0; j < a[i].notas.length; j++)
+            {
+                System.out.printf("\nNota do %dº bimestre: %.1f", j+1, a[i].notas[j]);
+            }
+            System.out.println();
         }
     }
 
     static double mediaAluno(Aluno a)
     {
-        return (a.nota1+a.nota2+a.nota3+a.nota4)/4;
+        double soma = 0;
+        for (int i = 0; i < a.notas.length; i++)
+        {
+            soma += a.notas[i];
+        }
+        return soma/4;
     }
 
     static void limparBuffer(Scanner scanner)
@@ -73,17 +80,11 @@ public class Tarefa01
 class Aluno
 {
     int matricula;
-    double nota1;
-    double nota2;
-    double nota3;
-    double nota4;
+    double[] notas = new double[4];
 
-    Aluno(int m, double n1, double n2, double n3, double n4)
+    Aluno(int m, double[] n)
     {
         this.matricula = m;
-        this.nota1 = n1;
-        this.nota2 = n2;
-        this.nota3 = n3;
-        this.nota4 = n4;
+        System.arraycopy(n, 0, this.notas, 0, n.length);
     }
 }
