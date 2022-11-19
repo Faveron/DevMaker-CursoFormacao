@@ -65,7 +65,7 @@ public class Tarefa01
         {
             soma += a.notas[i];
         }
-        return soma/4;
+        return soma/a.notas.length;
     }
 
     static void limparBuffer(Scanner scanner)
