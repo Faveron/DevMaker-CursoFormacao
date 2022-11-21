@@ -14,7 +14,6 @@ public class Tarefa01
     public static void main(String[] args)
     {
         Aluno[] turma = new Aluno[5];
-        Scanner entrada = new Scanner(System.in);
 
         int matricula;
         double[] notas = new double[4];
@@ -22,16 +21,12 @@ public class Tarefa01
         for (int i = 0; i < turma.length; i++)
         {
             System.out.println();
-            System.out.printf("Digite a matricula do %dº aluno: ", i+1);
-            matricula = entrada.nextInt();
+            matricula = getMatricula(i);
 
             for (int j = 0; j < notas.length; j++)
             {
-                System.out.printf("Digite a %dº nota: ", j+1);
-                notas[j] = entrada.nextDouble();
+                notas[j] = getNota(j);
             }
-            limparBuffer(entrada);
-
             turma[i] = new Aluno(matricula, notas);
         }
 
@@ -68,11 +63,69 @@ public class Tarefa01
         return soma/a.notas.length;
     }
 
-    static void limparBuffer(Scanner scanner)
+    public static int getMatricula(int i)
     {
-        if (scanner.hasNextLine())
+        Scanner entrada = new Scanner(System.in);
+        String numero;
+        do
         {
-            scanner.nextLine();
+            System.out.printf("Digite a matricula do %dº aluno: ", i+1);
+            numero = entrada.nextLine();
+        } while (!eInteriro(numero));
+
+        return Integer.parseInt(numero);
+    }
+
+    public static boolean eInteriro(String texto)
+    {
+        try
+        {
+            Integer.parseInt(texto);
+            if(Integer.parseInt(texto) > 0)
+            {
+                return true;
+            }else
+            {
+                System.out.println("O número tem que ser maior que zero, tente novamente");
+                return false;
+            }
+        } catch (Exception e)
+        {
+            System.out.println("Entrada inválida, tente novamente");
+            return false;
+        }
+    }
+
+    public static double getNota(int i)
+    {
+        Scanner entrada = new Scanner(System.in);
+        String numero;
+        do
+        {
+            System.out.printf("Digite a %dº nota: ", i+1);
+            numero = entrada.nextLine();
+        } while (!eDouble(numero));
+
+        return Double.parseDouble(numero);
+    }
+
+    public static boolean eDouble(String texto)
+    {
+        try
+        {
+            Double.parseDouble(texto);
+            if(Double.parseDouble(texto) >= 0 && Double.parseDouble(texto) <= 10)
+            {
+                return true;
+            }else
+            {
+                System.out.println("O número tem que ser entre 0 e 10, tente novamente");
+                return false;
+            }
+        } catch (Exception e)
+        {
+            System.out.println("Entrada inválida, tente novamente");
+            return false;
         }
     }
 }
