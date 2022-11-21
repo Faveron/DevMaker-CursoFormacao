@@ -60,9 +60,7 @@ public class Tarefa02
 
         salario = getSalario();
 
-        Trabalhador t = new Trabalhador(id, nome, sexo, salario);
-
-        return t;
+        return new Trabalhador(id, nome, sexo, salario);
     }
 
     public static int getId()
