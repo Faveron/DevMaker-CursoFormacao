@@ -6,12 +6,10 @@ import java.util.Scanner;
 
 public class Teste
 {
-    static Scanner entrada = new Scanner(System.in);
-    static boolean verificador;
-
     public static void main(String[] args)
     {
         double n;
+        boolean verificador;
 
         do
         {
@@ -30,6 +28,8 @@ public class Teste
 
     public static int getInt()
     {
+        Scanner entrada = new Scanner(System.in);
+        boolean verificador;
         String numero;
 
         do
@@ -52,6 +52,8 @@ public class Teste
 
     public static float getFloat()
     {
+        Scanner entrada = new Scanner(System.in);
+        boolean verificador;
         String numero;
 
         do
@@ -74,6 +76,8 @@ public class Teste
 
     public static double getDouble()
     {
+        Scanner entrada = new Scanner(System.in);
+        boolean verificador;
         String numero;
 
         do
@@ -96,6 +100,8 @@ public class Teste
 
     public static char getChar()
     {
+        Scanner entrada = new Scanner(System.in);
+        boolean verificador;
         char caracter;
 
         do
@@ -117,6 +123,8 @@ public class Teste
 
     public static String getString()
     {
+        Scanner entrada = new Scanner(System.in);
+        boolean verificador;
         String texto;
 
         do
