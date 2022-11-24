@@ -122,7 +122,8 @@ public class RedeSocial {
             System.out.println("\n\tNENHUM PERFIL CADASTRADO!!\n");
         }
     }
-    static void linha(){
+
+    static void linha() {
         for (int i = 0; i < 120; i++) {
             System.out.print("-");
         }

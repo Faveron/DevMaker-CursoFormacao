@@ -84,7 +84,8 @@ public class Perfil {
             System.out.println("\n\tNão há posts em seu perfil " + this.nome);
         }
     }
-    void linha(){
+
+    void linha() {
         for (int i = 0; i < 120; i++) {
             System.out.print("-");
         }
