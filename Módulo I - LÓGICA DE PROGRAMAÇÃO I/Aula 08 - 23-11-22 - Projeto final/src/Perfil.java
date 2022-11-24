@@ -19,6 +19,9 @@ public class Perfil {
         String opcao;
 
         do {
+            for (int i = 0; i < 120; i++) {
+                System.out.print("-");
+            }
             System.out.println("\n\tBem-vindo, " + this.nome);
             menuInicialPerfil();
             opcao = getOpcao();
@@ -45,9 +48,10 @@ public class Perfil {
     }
 
     void Postar() {
+        linha();
         Scanner entrada = new Scanner(System.in);
         try {
-            System.out.print("Digite a data: ");
+            System.out.print("\nDigite a data: ");
             String data = entrada.nextLine();
 
             System.out.print("Digite a hora: ");
@@ -67,12 +71,10 @@ public class Perfil {
         } catch (Exception e) {
             System.out.println("Erro!!!");
         }
-        for (int i = 0; i < 120; i++) {
-            System.out.print("-");
-        }
     }
 
     void timeline() {
+        linha();
         if (posts.size() > 0) {
             System.out.println("\n\t\tTIMELINE");
             for (Post p : posts) {
@@ -81,6 +83,8 @@ public class Perfil {
         } else {
             System.out.println("\n\tNão há posts em seu perfil " + this.nome);
         }
+    }
+    void linha(){
         for (int i = 0; i < 120; i++) {
             System.out.print("-");
         }

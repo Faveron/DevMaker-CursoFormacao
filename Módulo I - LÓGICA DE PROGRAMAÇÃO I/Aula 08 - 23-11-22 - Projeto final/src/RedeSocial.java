@@ -16,13 +16,11 @@ public class RedeSocial {
             switch (opcao) {
                 case "C" -> cadastrarPerfil();
                 case "E" -> entrar();
-                case "F" -> System.out.println("Saindo...");
-                case "ADM123" -> listarPerfis();
+                case "F" -> System.out.println("Fechando...");
+                case "L" -> listarPerfis();
                 default -> System.out.println("Opção inválida!");
             }
-            for (int i = 0; i < 120; i++) {
-                System.out.print("-");
-            }
+            linha();
         } while (!opcao.equals("F"));
     }
 
@@ -30,6 +28,7 @@ public class RedeSocial {
         System.out.println("\nSelecione um das opções:");
         System.out.println("\tC - Cadastrar");
         System.out.println("\tE - Entrar");
+        System.out.println("\tL - Lista de perfis cadastrados");
         System.out.println("\tF - Fechar");
     }
 
@@ -40,6 +39,7 @@ public class RedeSocial {
     }
 
     static void cadastrarPerfil() {
+        linha();
         Scanner entrada = new Scanner(System.in);
         try {
             System.out.println("\n\t\tCADASTRAR\n");
@@ -73,6 +73,7 @@ public class RedeSocial {
     }
 
     static void entrar() {
+        linha();
         if (perfis.size() == 0) {
             System.out.println("Nenhum perfil cadastrado.");
         } else {
@@ -111,9 +112,19 @@ public class RedeSocial {
     }
 
     static void listarPerfis() {
-        System.out.println("\n\tAdminstrador aqui está a lista de perfis cadastrados.\n");
-        for (Perfil p : perfis) {
-            System.out.println("\t[ Nome: " + p.nome + "; Login: " + p.login + "; Senha: " + p.senha + " ]");
+        linha();
+        if (perfis.size() > 0) {
+            System.out.println("\n\tLISTA DE PERFIS CADASTRADOS.\n");
+            for (Perfil p : perfis) {
+                System.out.println("\t[ Nome: " + p.nome + "; Login: " + p.login + "; Senha: " + p.senha + " ]");
+            }
+        } else {
+            System.out.println("\n\tNENHUM PERFIL CADASTRADO!!\n");
+        }
+    }
+    static void linha(){
+        for (int i = 0; i < 120; i++) {
+            System.out.print("-");
         }
     }
 }
