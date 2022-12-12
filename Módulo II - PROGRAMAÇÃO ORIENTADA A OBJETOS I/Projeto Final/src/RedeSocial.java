@@ -1,10 +1,14 @@
-import MinhasExcecoes.*;
+import MinhasExcecoes.CampoVazioException;
+import MinhasExcecoes.SenhaInvalidaException;
+import MinhasExcecoes.UsuarioExistenteException;
+import MinhasExcecoes.UsuarioNaoEncontradoException;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class RedeSocial {
-    static ArrayList<Perfil> perfis = new ArrayList<>();
+    static List<Perfil> perfis = new ArrayList<>();
 
     public static void main(String[] args) {
         String opcao;
@@ -16,12 +20,18 @@ public class RedeSocial {
             switch (opcao) {
                 case "C" -> cadastrarPerfil();
                 case "E" -> entrar();
-                case "F" -> System.out.println("Fechando...");
                 case "L" -> listarPerfis();
+                case "F" -> System.out.println("Fechando...");
                 default -> System.out.println("Opção inválida!");
             }
             linha();
         } while (!opcao.equals("F"));
+    }
+
+    static void linha() {
+        for (int i = 0; i < 150; i++) {
+            System.out.print("-");
+        }
     }
 
     static void menuInicial() {
@@ -56,7 +66,7 @@ public class RedeSocial {
                 throw new CampoVazioException();
             }
             for (Perfil p : perfis) {
-                if (p.login.equals(login)) {
+                if (p.getLogin().equals(login)) {
                     throw new UsuarioExistenteException();
                 }
             }
@@ -75,7 +85,7 @@ public class RedeSocial {
     static void entrar() {
         linha();
         if (perfis.size() == 0) {
-            System.out.println("\nNenhum perfil cadastrado.");
+            System.out.println("Nenhum perfil cadastrado.");
         } else {
             try {
                 Scanner entrada = new Scanner(System.in);
@@ -89,9 +99,9 @@ public class RedeSocial {
                 String senha = entrada.nextLine();
 
                 for (int i = 0; i < perfis.size() && verifica == 0; i++) {
-                    if (perfis.get(i).login.equals(login)) {
+                    if (perfis.get(i).getLogin().equals(login)) {
                         verifica++;
-                        if (perfis.get(i).senha.equals(senha)) {
+                        if (perfis.get(i).getSenha().equals(senha)) {
                             perfis.get(i).inicializacao();
                         } else {
                             throw new SenhaInvalidaException();
@@ -116,16 +126,10 @@ public class RedeSocial {
         if (perfis.size() > 0) {
             System.out.println("\n\tLISTA DE PERFIS CADASTRADOS.\n");
             for (Perfil p : perfis) {
-                System.out.println("\t[ Nome: " + p.nome + "; Login: " + p.login + "; Senha: " + p.senha + " ]");
+                System.out.println("\t[ Nome: " + p.getNome() + "; Login: " + p.getLogin() + "; Senha: " + p.getSenha() + " ]");
             }
         } else {
             System.out.println("\n\tNENHUM PERFIL CADASTRADO!!\n");
-        }
-    }
-
-    static void linha() {
-        for (int i = 0; i < 120; i++) {
-            System.out.print("-");
         }
     }
 }
