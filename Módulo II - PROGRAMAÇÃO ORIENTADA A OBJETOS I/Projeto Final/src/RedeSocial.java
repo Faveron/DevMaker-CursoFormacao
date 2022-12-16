@@ -8,33 +8,34 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RedeSocial {
-    static List<Perfil> perfis = new ArrayList<>();
-
     public static void main(String[] args) {
+        List<Perfil> perfis = new ArrayList<>();
+        RedeSocial redeSocial = new RedeSocial();
         String opcao;
 
         do {
             System.out.println("\n\t\tBEM-VIMDO a rede social dos Dev_Makers");
-            menuInicial();
-            opcao = getOpcao();
+            redeSocial.menuInicial();
+            opcao = redeSocial.getOpcao();
+            redeSocial.linha();
             switch (opcao) {
-                case "C" -> cadastrarPerfil();
-                case "E" -> entrar();
-                case "L" -> listarPerfis();
-                case "F" -> System.out.println("Fechando...");
-                default -> System.out.println("Opção inválida!");
+                case "C" -> redeSocial.cadastrarPerfil(perfis);
+                case "E" -> redeSocial.logarPerfil(perfis, redeSocial);
+                case "L" -> redeSocial.listarPerfis(perfis);
+                case "F" -> System.out.println("\n\tFechando...");
+                default -> System.out.println("\n\tOpção inválida!");
             }
-            linha();
+            redeSocial.linha();
         } while (!opcao.equals("F"));
     }
 
-    static void linha() {
+    public void linha() {
         for (int i = 0; i < 150; i++) {
             System.out.print("-");
         }
     }
 
-    static void menuInicial() {
+    public void menuInicial() {
         System.out.println("\nSelecione um das opções:");
         System.out.println("\tC - Cadastrar");
         System.out.println("\tE - Entrar");
@@ -42,14 +43,13 @@ public class RedeSocial {
         System.out.println("\tF - Fechar");
     }
 
-    static String getOpcao() {
+    public String getOpcao() {
         Scanner entrada = new Scanner(System.in);
         System.out.print("Opção: ");
         return entrada.nextLine().toUpperCase();
     }
 
-    static void cadastrarPerfil() {
-        linha();
+    public void cadastrarPerfil(List<Perfil> perfis) {
         Scanner entrada = new Scanner(System.in);
         try {
             System.out.println("\n\t\tCADASTRAR\n");
@@ -82,10 +82,9 @@ public class RedeSocial {
         }
     }
 
-    static void entrar() {
-        linha();
+    public void logarPerfil(List<Perfil> perfis, RedeSocial redeSocial) {
         if (perfis.size() == 0) {
-            System.out.println("Nenhum perfil cadastrado.");
+            System.out.println("\n\tNenhum perfil cadastrado.");
         } else {
             try {
                 Scanner entrada = new Scanner(System.in);
@@ -102,7 +101,7 @@ public class RedeSocial {
                     if (perfis.get(i).getLogin().equals(login)) {
                         verifica++;
                         if (perfis.get(i).getSenha().equals(senha)) {
-                            perfis.get(i).inicializacao();
+                            redeSocial.menuPerfil(perfis.get(i), redeSocial);
                         } else {
                             throw new SenhaInvalidaException();
                         }
@@ -121,15 +120,31 @@ public class RedeSocial {
         }
     }
 
-    static void listarPerfis() {
-        linha();
+    public void menuPerfil(Perfil p, RedeSocial r) {
+        String opcao;
+        do {
+            r.linha();
+            System.out.println("\n\tBem-vindo, " + p.getNome());
+            p.menuInicialPerfil();
+            opcao = r.getOpcao();
+            r.linha();
+            switch (opcao) {
+                case "P" -> p.postar();
+                case "T" -> p.timeline();
+                case "S" -> System.out.println("\n\tLogout...");
+                default -> System.out.println("\n\tOpção inválida!");
+            }
+        } while (!opcao.equals("S"));
+    }
+
+    public void listarPerfis(List<Perfil> perfis) {
         if (perfis.size() > 0) {
             System.out.println("\n\tLISTA DE PERFIS CADASTRADOS.\n");
             for (Perfil p : perfis) {
                 System.out.println("\t[ Nome: " + p.getNome() + "; Login: " + p.getLogin() + "; Senha: " + p.getSenha() + " ]");
             }
         } else {
-            System.out.println("\n\tNENHUM PERFIL CADASTRADO!!\n");
+            System.out.println("\n\tNENHUM PERFIL CADASTRADO!!");
         }
     }
 }

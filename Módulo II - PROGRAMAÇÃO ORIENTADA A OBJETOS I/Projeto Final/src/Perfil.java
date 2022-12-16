@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class Perfil {
     private String nome;
-    final String login;
+    private final String LOGIN;
     private String senha;
     List<Post> posts = new ArrayList<>();
 
     public Perfil(String nome, String login, String senha) {
         this.nome = nome;
-        this.login = login;
+        this.LOGIN = login;
         this.senha = senha;
     }
 
@@ -20,61 +20,22 @@ public class Perfil {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getLogin() {
-        return login;
+        return LOGIN;
     }
 
     public String getSenha() {
         return senha;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public void inicializacao() {
-        String opcao;
-        linha();
-
-        do {
-            System.out.println("\n\tBem-vindo, " + this.nome);
-            menuInicialPerfil();
-            opcao = getOpcao();
-            switch (opcao) {
-                case "P" -> postar();
-                case "T" -> timeline();
-                case "S" -> System.out.println("Logout...");
-                default -> System.out.println("Opção inválida!");
-            }
-            linha();
-        } while (!opcao.equals("S"));
-    }
-
-    private void menuInicialPerfil() {
+    public void menuInicialPerfil() {
         System.out.println("\nSelecione um das opções:");
         System.out.println("\tP - Postar");
         System.out.println("\tT - Timeline");
         System.out.println("\tS - Sair");
     }
 
-    private String getOpcao() {
-        Scanner entrada = new Scanner(System.in);
-        System.out.print("Opção: ");
-        return entrada.nextLine().toUpperCase();
-    }
-
-    private void linha() {
-        for (int i = 0; i < 150; i++) {
-            System.out.print("-");
-        }
-    }
-
-    private void postar() {
-        linha();
+    public void postar() {
         Scanner entrada = new Scanner(System.in);
         try {
             System.out.println("\n\tPOSTAR.");
@@ -101,12 +62,11 @@ public class Perfil {
         }
     }
 
-    private void timeline() {
-        linha();
+    public void timeline() {
         if (posts.size() > 0) {
             System.out.println("\n\t\tTIMELINE");
             for (Post p : posts) {
-                System.out.println("\n\t" + p.getData() + " às " + p.getHora() + " - " + p.getConteudo());
+                System.out.println("\n\t" + p.getDATA() + " às " + p.getHORA() + " - " + p.getConteudo());
             }
         } else {
             System.out.println("\n\tNão há posts em seu perfil " + this.nome);
