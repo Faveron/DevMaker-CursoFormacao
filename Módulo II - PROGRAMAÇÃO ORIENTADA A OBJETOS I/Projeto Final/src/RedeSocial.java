@@ -20,7 +20,7 @@ public class RedeSocial {
             redeSocial.linha();
             switch (opcao) {
                 case "C" -> redeSocial.cadastrarPerfil(perfis);
-                case "E" -> redeSocial.logarPerfil(perfis, redeSocial);
+                case "E" -> redeSocial.logarPerfil(perfis);
                 case "L" -> redeSocial.listarPerfis(perfis);
                 case "F" -> System.out.println("\n\tFechando...");
                 default -> System.out.println("\n\tOpção inválida!");
@@ -82,7 +82,7 @@ public class RedeSocial {
         }
     }
 
-    public void logarPerfil(List<Perfil> perfis, RedeSocial redeSocial) {
+    public void logarPerfil(List<Perfil> perfis) {
         if (perfis.size() == 0) {
             System.out.println("\n\tNenhum perfil cadastrado.");
         } else {
@@ -101,7 +101,7 @@ public class RedeSocial {
                     if (perfis.get(i).getLogin().equals(login)) {
                         verifica++;
                         if (perfis.get(i).getSenha().equals(senha)) {
-                            redeSocial.acoesPerfil(perfis.get(i), redeSocial);
+                            acoesPerfil(perfis.get(i));
                         } else {
                             throw new SenhaInvalidaException();
                         }
@@ -120,14 +120,14 @@ public class RedeSocial {
         }
     }
 
-    public void acoesPerfil(Perfil p, RedeSocial r) {
+    public void acoesPerfil(Perfil p) {
         String opcao;
         do {
-            r.linha();
+            linha();
             System.out.println("\n\tBem-vindo, " + p.getNome());
             p.menuInicialPerfil();
-            opcao = r.getOpcao();
-            r.linha();
+            opcao = getOpcao();
+            linha();
             switch (opcao) {
                 case "P" -> p.postar();
                 case "T" -> p.timeline();
