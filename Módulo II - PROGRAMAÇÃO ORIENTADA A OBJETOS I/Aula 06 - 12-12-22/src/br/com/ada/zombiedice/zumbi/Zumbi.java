@@ -10,12 +10,10 @@ public class Zumbi {
 
     private final String nome;
     private int qtdCerebros;
-    private int qtdTiros;
 
     public Zumbi(String nome) {
         this.nome = nome;
         this.qtdCerebros = 0;
-        this.qtdTiros = 0;
     }
 
     public String getNome() {

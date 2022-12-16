@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Turno {
-    private List<Dado> dadosUtilizadosNoTurno;
+    private final List<Dado> dadosUtilizadosNoTurno;
     private int qtdTirosSorteados;
     private int qtdCerebrosSorteados;
-    private Zumbi jogador;
-    private PoteDado pote;
+    private final Zumbi jogador;
+    private final PoteDado pote;
 
     public Turno(Zumbi jogador, PoteDado pote) {
         this.jogador = jogador;
@@ -29,7 +29,7 @@ public class Turno {
         String continuarJogando;
         List<Dado> dadosASeremRelancados = new ArrayList<>();
         do {
-            System.out.print("\nJogador " + jogador.getNome() + " é a sua vez, realize uma jogada");
+            System.out.print("\nJogador " + jogador.getNome() + " é a sua vez, realize uma jogada\nAperte ENTER para lançar");
             scanner.nextLine();
             System.out.println();
             List<Dado> dadosLancados = jogador.lancarDados(pote, dadosASeremRelancados);
@@ -55,7 +55,7 @@ public class Turno {
     }
 
     private boolean forcarEncerramentoTurno() {
-        return qtdTirosSorteados >= 3 || qtdCerebrosSorteados >= 13;
+        return qtdTirosSorteados >= 3 || jogador.getQtdCerebros() + qtdCerebrosSorteados >= 13;
     }
 
     private boolean contabilizarDadoJogado(Dado dado) {
