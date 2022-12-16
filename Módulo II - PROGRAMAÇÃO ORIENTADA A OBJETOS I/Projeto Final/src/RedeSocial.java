@@ -101,7 +101,7 @@ public class RedeSocial {
                     if (perfis.get(i).getLogin().equals(login)) {
                         verifica++;
                         if (perfis.get(i).getSenha().equals(senha)) {
-                            redeSocial.menuPerfil(perfis.get(i), redeSocial);
+                            redeSocial.acoesPerfil(perfis.get(i), redeSocial);
                         } else {
                             throw new SenhaInvalidaException();
                         }
@@ -120,7 +120,7 @@ public class RedeSocial {
         }
     }
 
-    public void menuPerfil(Perfil p, RedeSocial r) {
+    public void acoesPerfil(Perfil p, RedeSocial r) {
         String opcao;
         do {
             r.linha();
