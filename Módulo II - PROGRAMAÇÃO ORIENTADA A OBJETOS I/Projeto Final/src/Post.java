@@ -1,12 +1,12 @@
 public class Post {
     private final String DATA;
     private final String HORA;
-    private final String conteudo;
+    private final String CONTEUDO;
 
     public Post(String data, String hora, String conteudo) {
         this.DATA = data;
         this.HORA = hora;
-        this.conteudo = conteudo;
+        this.CONTEUDO = conteudo;
     }
 
     public String getData() {
@@ -18,6 +18,6 @@ public class Post {
     }
 
     public String getConteudo() {
-        return conteudo;
+        return CONTEUDO;
     }
 }

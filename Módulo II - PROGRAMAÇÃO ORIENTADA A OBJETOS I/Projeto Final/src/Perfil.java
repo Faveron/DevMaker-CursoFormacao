@@ -5,19 +5,19 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Perfil {
-    private final String nome;
+    private final String NOME;
     private final String LOGIN;
-    private final String senha;
+    private final String SENHA;
     List<Post> posts = new ArrayList<>();
 
     public Perfil(String nome, String login, String senha) {
-        this.nome = nome;
+        this.NOME = nome;
         this.LOGIN = login;
-        this.senha = senha;
+        this.SENHA = senha;
     }
 
     public String getNome() {
-        return nome;
+        return NOME;
     }
 
     public String getLogin() {
@@ -25,7 +25,7 @@ public class Perfil {
     }
 
     public String getSenha() {
-        return senha;
+        return SENHA;
     }
 
     public void menuInicialPerfil() {
@@ -69,7 +69,7 @@ public class Perfil {
                 System.out.println("\n\t" + p.getData() + " às " + p.getHora() + " - " + p.getConteudo());
             }
         } else {
-            System.out.println("\n\tNão há posts em seu perfil " + this.nome);
+            System.out.println("\n\tNão há posts em seu perfil " + this.NOME);
         }
     }
 }
