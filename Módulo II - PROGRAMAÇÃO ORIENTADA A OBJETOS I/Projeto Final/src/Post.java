@@ -1,7 +1,7 @@
 public class Post {
     private final String DATA;
     private final String HORA;
-    private String conteudo;
+    private final String conteudo;
 
     public Post(String data, String hora, String conteudo) {
         this.DATA = data;
@@ -9,11 +9,11 @@ public class Post {
         this.conteudo = conteudo;
     }
 
-    public String getDATA() {
+    public String getData() {
         return DATA;
     }
 
-    public String getHORA() {
+    public String getHora() {
         return HORA;
     }
 

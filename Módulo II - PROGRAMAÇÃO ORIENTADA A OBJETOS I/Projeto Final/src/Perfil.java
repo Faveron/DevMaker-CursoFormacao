@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Perfil {
-    private String nome;
+    private final String nome;
     private final String LOGIN;
-    private String senha;
+    private final String senha;
     List<Post> posts = new ArrayList<>();
 
     public Perfil(String nome, String login, String senha) {
@@ -66,7 +66,7 @@ public class Perfil {
         if (posts.size() > 0) {
             System.out.println("\n\t\tTIMELINE");
             for (Post p : posts) {
-                System.out.println("\n\t" + p.getDATA() + " às " + p.getHORA() + " - " + p.getConteudo());
+                System.out.println("\n\t" + p.getData() + " às " + p.getHora() + " - " + p.getConteudo());
             }
         } else {
             System.out.println("\n\tNão há posts em seu perfil " + this.nome);
