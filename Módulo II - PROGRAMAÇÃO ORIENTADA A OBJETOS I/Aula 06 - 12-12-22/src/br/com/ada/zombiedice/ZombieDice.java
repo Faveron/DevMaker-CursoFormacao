@@ -64,9 +64,9 @@ public class ZombieDice {
         jogar(jogadores, pote);
     }
 
-    public void placar(List<Zumbi> jogadores){
+    public void placar(List<Zumbi> jogadores) {
         System.out.println("\n\t\tPONTUAÇÃO");
-        for (Zumbi j : jogadores){
+        for (Zumbi j : jogadores) {
             System.out.println("\t" + j.getNome() + ": " + j.getQtdCerebros() + " cerebros");
         }
     }

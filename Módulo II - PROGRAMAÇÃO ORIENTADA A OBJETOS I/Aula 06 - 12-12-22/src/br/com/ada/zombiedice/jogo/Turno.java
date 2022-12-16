@@ -31,6 +31,7 @@ public class Turno {
         do {
             System.out.print("\nJogador " + jogador.getNome() + " é a sua vez, realize uma jogada\nAperte ENTER para lançar");
             scanner.nextLine();
+            scanner = scanner.reset();
             System.out.println();
             List<Dado> dadosLancados = jogador.lancarDados(pote, dadosASeremRelancados);
             dadosASeremRelancados.clear();
