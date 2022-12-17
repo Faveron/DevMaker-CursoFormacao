@@ -64,14 +64,10 @@ public class Turno {
         if (contabilizado) {
             dadosUtilizadosNoTurno.add(dado);
             if (dado.getFaceSorteada() == Face.CEREBRO) {
-                System.out.println("Você consumiu mais cerebros");
                 qtdCerebrosSorteados++;
             } else {
-                System.out.println("Levou tiro");
                 qtdTirosSorteados++;
             }
-        } else {
-            System.out.println("Vai aprecisar correr mais, sua presa fugiu");
         }
         return contabilizado;
     }

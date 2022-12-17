@@ -39,6 +39,8 @@ public class Perfil {
         Scanner entrada = new Scanner(System.in);
         try {
             System.out.println("\n\tPOSTAR.");
+            //DateTimeFormatter formatterData = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+            //String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
             System.out.print("\nDigite a data: ");
             String data = entrada.nextLine();
 
