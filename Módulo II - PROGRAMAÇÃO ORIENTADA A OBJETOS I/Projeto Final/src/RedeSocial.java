@@ -21,8 +21,13 @@ public class RedeSocial {
             switch (opcao) {
                 case "C" -> redeSocial.cadastrarPerfil(perfis);
                 case "E" -> redeSocial.logarPerfil(perfis);
-                case "L" -> redeSocial.listarPerfis(perfis);
                 case "F" -> System.out.println("\n\tFechando...");
+                /*
+                    Esse chamada de função é para ser secreta, so mediante a digitação de um código especifico e
+                    secreto que será feito a listagens dos dados de todos os perfis
+                    a ideia é como se fosse um comando secreto de um jogo para desbloquear funções
+                 */
+                case "8943581" -> redeSocial.listarPerfis(perfis);
                 default -> System.out.println("\n\tOpção inválida!");
             }
             redeSocial.linha();
@@ -39,7 +44,6 @@ public class RedeSocial {
         System.out.println("\nSelecione um das opções:");
         System.out.println("\tC - Cadastrar");
         System.out.println("\tE - Entrar");
-        System.out.println("\tL - Lista de perfis cadastrados");
         System.out.println("\tF - Fechar");
     }
 
@@ -131,6 +135,8 @@ public class RedeSocial {
             switch (opcao) {
                 case "P" -> p.postar();
                 case "T" -> p.timeline();
+                case "E" -> p.editarPost();
+                case "D" -> p.editarDadosPerfil();
                 case "S" -> System.out.println("\n\tLogout...");
                 default -> System.out.println("\n\tOpção inválida!");
             }

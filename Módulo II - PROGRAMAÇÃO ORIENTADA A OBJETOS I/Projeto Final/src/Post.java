@@ -1,23 +1,35 @@
 public class Post {
-    private final String DATA;
-    private final String HORA;
-    private final String CONTEUDO;
+    private String data;
+    private String hora;
+    private String conteudo;
 
     public Post(String data, String hora, String conteudo) {
-        this.DATA = data;
-        this.HORA = hora;
-        this.CONTEUDO = conteudo;
+        this.data = data;
+        this.hora = hora;
+        this.conteudo = conteudo;
     }
 
     public String getData() {
-        return DATA;
+        return data;
     }
 
     public String getHora() {
-        return HORA;
+        return hora;
     }
 
     public String getConteudo() {
-        return CONTEUDO;
+        return conteudo;
+    }
+
+    public void setConteudo(String conteudo) {
+        this.conteudo = conteudo;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 }
