@@ -45,6 +45,5 @@ public class Exercicios {
             agora = agora.plusMonths(1);
         }
         System.out.println();
-        System.out.println();
     }
 }
