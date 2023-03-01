@@ -37,13 +37,12 @@ public class Exercicios {
         final String NUM_PARCELAS = "48";
         LocalDate agora = LocalDate.now();
 
-        BigDecimal valorTotal = new BigDecimal(PRECO_TOTAL).divide(BigDecimal.ONE, 2, RoundingMode.FLOOR);
+        BigDecimal valorTotal = new BigDecimal(PRECO_TOTAL).divide(BigDecimal.ONE, 2, RoundingMode.HALF_EVEN);
         System.out.println("\nValor total a ser pago: R$ " + valorTotal);
-        BigDecimal parcela = new BigDecimal(String.valueOf(valorTotal.divide(new BigDecimal(NUM_PARCELAS), 2, RoundingMode.FLOOR)));
+        BigDecimal valorParcela = valorTotal.divide(new BigDecimal(NUM_PARCELAS), 2, RoundingMode.HALF_EVEN);
 
         for (int i = 0; i < Integer.parseInt(NUM_PARCELAS); i++) {
-            System.out.printf("\n%02d° Parcela de R$ " + parcela + " a ser paga dia: " + agora.format(formatacao), i+1);
-            agora = agora.plusMonths(1);
+            System.out.printf("\n%02d° Parcela de R$ " + valorParcela + " a ser paga dia: " + agora.plusMonths(i).format(formatacao), i+1);
         }
         System.out.println();
     }
