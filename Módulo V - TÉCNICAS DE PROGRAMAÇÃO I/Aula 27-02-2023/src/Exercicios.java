@@ -1,9 +1,3 @@
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-
 /*
     1. Dado uma data e hora específica em string, use a nova API de datas do Java para criar um objeto
     LocalDate, um LocalTime e um LocalDateTime e imprimí-los;
@@ -11,6 +5,13 @@ import java.time.format.DateTimeFormatter;
     2. A partir da data atual, calcule e imprima uma compra de R$ 64.000,00
     parcelado em 48x. Imprima o valor e a data de cada parcela usando a nova API de datas do Java.
  */
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class Exercicios {
     public static void main(String[] args) {
 
