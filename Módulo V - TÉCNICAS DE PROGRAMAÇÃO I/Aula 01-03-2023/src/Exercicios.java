@@ -42,12 +42,11 @@ public class Exercicios {
         BigDecimal valorParcela = valorTotal.divide(new BigDecimal(NUM_PARCELAS), 2, RoundingMode.HALF_EVEN);
 
         for (int i = 0; i < Integer.parseInt(NUM_PARCELAS); i++) {
-            if(agora.plusMonths(i).getDayOfWeek() == DayOfWeek.SATURDAY || agora.plusMonths(i).getDayOfWeek() == DayOfWeek.SUNDAY){
-                System.out.printf("\n%02d° Parcela de R$ " + valorParcela + " a ser paga dia: " + agora.plusMonths(i).with(TemporalAdjusters.next(DayOfWeek.MONDAY)).format(formatacao), i+1);
+            LocalDate dataPagamento = agora.plusMonths(i);
+            if (dataPagamento.getDayOfWeek() == DayOfWeek.SATURDAY || dataPagamento.getDayOfWeek() == DayOfWeek.SUNDAY) {
+                dataPagamento = dataPagamento.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
             }
-            else {
-                System.out.printf("\n%02d° Parcela de R$ " + valorParcela + " a ser paga dia: " + agora.plusMonths(i).format(formatacao), i+1);
-            }
+            System.out.printf("\n%02d° Parcela de R$ " + valorParcela + " a ser paga dia: " + dataPagamento.format(formatacao), i + 1);
         }
         System.out.println();
 
