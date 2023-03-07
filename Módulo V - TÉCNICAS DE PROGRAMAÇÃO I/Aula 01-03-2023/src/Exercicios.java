@@ -43,13 +43,12 @@ public class Exercicios {
 
         for (int i = 0; i < Integer.parseInt(NUM_PARCELAS); i++) {
             LocalDate dataPagamento = agora.plusMonths(i);
-            if (dataPagamento.getDayOfWeek() == DayOfWeek.SATURDAY || dataPagamento.getDayOfWeek() == DayOfWeek.SUNDAY) {
+            if (dataPagamento.getDayOfWeek().equals(DayOfWeek.SATURDAY) || dataPagamento.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
                 dataPagamento = dataPagamento.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
             }
             System.out.printf("\n%02d° Parcela de R$ " + valorParcela + " a ser paga dia: " + dataPagamento.format(formatacao), i + 1);
         }
         System.out.println();
-
 
         System.out.println("\n\t\t EXERCÍCIO 03");
         var dataNascimento = LocalDate.of(2023, 3, 3);
