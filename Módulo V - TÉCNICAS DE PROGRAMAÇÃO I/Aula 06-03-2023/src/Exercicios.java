@@ -54,7 +54,11 @@ public class Exercicios {
                 new PessoaEx5("Almeida", 25),
                 new PessoaEx5("Jorge", 20),
                 new PessoaEx5("Lucas", 25));
-        List<String> somenteNomes = pessoas.stream().filter(x -> x.idade > 18).map(x -> x.nome).limit(3).toList();
+        List<String> somenteNomes = pessoas.stream()
+                .filter(x -> x.getIdade() > 18)
+                .map(x -> x.getNome())
+                .limit(3)
+                .toList();
         System.out.println(somenteNomes);
     }
 }
