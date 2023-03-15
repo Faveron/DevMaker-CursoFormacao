@@ -29,7 +29,7 @@ public class Exercicios {
 
         System.out.println("\n\t\tExercicio 01");
         System.out.println("Lista: " + numeros);
-        List<Integer> numeroPares = numeros.stream().filter((n) -> n % 2 == 0).toList();
+        List<Integer> numeroPares = numeros.stream().filter(n -> n % 2 == 0).toList();
         System.out.println("Números pares: " + numeroPares);
 
         System.out.println("\n\t\tExercicio 02");
@@ -48,8 +48,7 @@ public class Exercicios {
         System.out.println("Números ordenados: " + numerosOrdenados);
 
         System.out.println("\n\t\tExercicio 05");
-        List<PessoaEx5> pessoas = List.of(
-                new PessoaEx5("Wesley", 18),
+        List<PessoaEx5> pessoas = List.of( new PessoaEx5("Wesley", 18),
                 new PessoaEx5("Faveron", 20),
                 new PessoaEx5("Almeida", 25),
                 new PessoaEx5("Jorge", 20),
