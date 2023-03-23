@@ -1,0 +1,29 @@
+.:: RELATORIO DE TRANSACOES ::.
+
+## DADOS DA CONTA
+
+TITULAR    : maria
+CPF        : 456
+SALDO ATUAL: 53.35
+
+CRIADO     : 15/03/23 22:08
+ATUALIZADO : 15/03/23 22:08
+
+_________________________________
+
+O SALDO FINAL DO EXTRATO EH: 53.35
+
+_________________________________
+
+O FILTRO SELECIONADO FOI
+DE : 01/03/23 00:00
+ATE: 15/03/23 22:13
+
+_________________________________
+
+SAQUE     | 13        | 15/03/23 10:10
+
+DEPOSITO  | 54        | 15/03/23 10:10
+
+DEPOSITO  | 12.35     | 15/03/23 10:10
+

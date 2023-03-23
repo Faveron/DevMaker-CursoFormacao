@@ -137,5 +137,5 @@ record Funcionario(String nome, Departamento departamento, BigDecimal salario) {
 record Transacao(String nomePessoa, Integer qtd) {
 }
 
-record Livro(String autor, String nomeLivro, int qtdVendida) {
+record Livro(String autor, String titulo, int qtdVendida) {
 }
