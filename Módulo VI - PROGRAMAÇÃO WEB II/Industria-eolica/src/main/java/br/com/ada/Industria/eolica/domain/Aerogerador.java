@@ -1,7 +1,9 @@
 package br.com.ada.Industria.eolica.domain;
 
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Getter
@@ -9,11 +11,20 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
 public class Aerogerador {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
     private String modelo;
+
+    @Column(unique = true)
     private String numeroSerie;
+
+    @Enumerated(EnumType.STRING)
     private AerogeradorStatus status;
+    private LocalDateTime createdAt;
 
     @Override
     public boolean equals(Object o) {
