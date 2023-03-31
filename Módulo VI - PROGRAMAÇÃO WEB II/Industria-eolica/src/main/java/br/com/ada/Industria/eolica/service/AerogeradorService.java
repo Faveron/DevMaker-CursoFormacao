@@ -1,6 +1,6 @@
-package br.com.ada.gerenciadorEolico.service;
+package br.com.ada.Industria.eolica.service;
 
-import br.com.ada.gerenciadorEolico.domain.Aerogerador;
+import br.com.ada.Industria.eolica.domain.Aerogerador;
 
 import java.util.List;
 

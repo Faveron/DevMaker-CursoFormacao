@@ -1,11 +1,13 @@
-package br.com.ada.gerenciadorEolico.service;
+package br.com.ada.Industria.eolica.service;
 
-import br.com.ada.gerenciadorEolico.domain.ParqueEolico;
-import br.com.ada.gerenciadorEolico.repository.ParqueEolicoRepository;
+import br.com.ada.Industria.eolica.domain.ParqueEolico;
+import br.com.ada.Industria.eolica.repository.ParqueEolicoRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor

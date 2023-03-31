@@ -1,14 +1,10 @@
-package br.com.ada.gerenciadorEolico.dto;
+package br.com.ada.Industria.eolica.dto;
 
-import br.com.ada.gerenciadorEolico.domain.AerogeradorStatus;
+import br.com.ada.Industria.eolica.domain.AerogeradorStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-
 import lombok.Setter;
-
-import java.time.LocalDateTime;
-
 
 @Setter
 @Getter

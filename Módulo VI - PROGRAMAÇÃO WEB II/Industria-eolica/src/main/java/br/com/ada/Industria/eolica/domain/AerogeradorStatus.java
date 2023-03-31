@@ -1,4 +1,4 @@
-package br.com.ada.gerenciadorEolico.domain;
+package br.com.ada.Industria.eolica.domain;
 
 public enum AerogeradorStatus {
     ATIVADO, DESATIVADO

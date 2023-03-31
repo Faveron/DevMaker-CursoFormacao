@@ -1,8 +1,8 @@
-package br.com.ada.gerenciadorEolico.config;
+package br.com.ada.Industria.eolica.config;
 
-import br.com.ada.gerenciadorEolico.dto.ErrorDTO;
-import br.com.ada.gerenciadorEolico.exceptions.AerogeradorNotFoundException;
-import br.com.ada.gerenciadorEolico.exceptions.AerogeradorNumeroSerieException;
+import br.com.ada.Industria.eolica.dto.ErrorDTO;
+import br.com.ada.Industria.eolica.exceptions.AerogeradorNotFoundException;
+import br.com.ada.Industria.eolica.exceptions.AerogeradorNumeroSerieException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -30,7 +30,6 @@ public class HandlerException {
         return errors;
     }
 
-
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(AerogeradorNotFoundException.class)
     public ErrorDTO handlerAerogeradorNotFound(AerogeradorNotFoundException ex) {
@@ -42,6 +41,4 @@ public class HandlerException {
     public ErrorDTO handlerAerogeradorConflito(AerogeradorNumeroSerieException ex) {
         return ErrorDTO.builder().message(ex.getMessage()).build();
     }
-
-
 }

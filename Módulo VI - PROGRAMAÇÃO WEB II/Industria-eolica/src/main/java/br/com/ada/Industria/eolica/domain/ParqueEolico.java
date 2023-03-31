@@ -1,6 +1,5 @@
-package br.com.ada.gerenciadorEolico.domain;
+package br.com.ada.Industria.eolica.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,7 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class ParqueEolico {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;

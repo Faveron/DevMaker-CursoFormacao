@@ -1,5 +1,4 @@
-package br.com.ada.gerenciadorEolico.domain;
-
+package br.com.ada.Industria.eolica.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

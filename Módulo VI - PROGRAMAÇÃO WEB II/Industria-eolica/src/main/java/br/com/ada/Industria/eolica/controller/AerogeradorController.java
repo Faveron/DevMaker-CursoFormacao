@@ -1,15 +1,12 @@
-package br.com.ada.gerenciadorEolico.controller;
+package br.com.ada.Industria.eolica.controller;
 
-import br.com.ada.gerenciadorEolico.domain.Aerogerador;
-import br.com.ada.gerenciadorEolico.domain.ParqueEolico;
-import br.com.ada.gerenciadorEolico.dto.AerogeradorSaveDTO;
-import br.com.ada.gerenciadorEolico.mapper.AerogeradorMapper;
-import br.com.ada.gerenciadorEolico.service.AerogeradorService;
+import br.com.ada.Industria.eolica.domain.Aerogerador;
+import br.com.ada.Industria.eolica.domain.ParqueEolico;
+import br.com.ada.Industria.eolica.dto.AerogeradorSaveDTO;
+import br.com.ada.Industria.eolica.mapper.AerogeradorMapper;
+import br.com.ada.Industria.eolica.service.AerogeradorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +16,6 @@ import java.util.List;
 @RequestMapping("aerogeradores")
 @RestController
 public class AerogeradorController {
-
-
     private final AerogeradorService aerogeradorService;
     private final AerogeradorMapper mapper;
 
@@ -53,6 +48,4 @@ public class AerogeradorController {
     public void delete(@PathVariable Long id) {
         aerogeradorService.delete(id);
     }
-
-
 }

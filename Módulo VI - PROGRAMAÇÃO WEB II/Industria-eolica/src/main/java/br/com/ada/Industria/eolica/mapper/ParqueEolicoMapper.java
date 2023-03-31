@@ -1,11 +1,10 @@
-package br.com.ada.gerenciadorEolico.mapper;
+package br.com.ada.Industria.eolica.mapper;
 
-import br.com.ada.gerenciadorEolico.domain.ParqueEolico;
-import br.com.ada.gerenciadorEolico.dto.ParqueEolicoListDTO;
+import br.com.ada.Industria.eolica.domain.ParqueEolico;
+import br.com.ada.Industria.eolica.dto.ParqueEolicoListDTO;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface ParqueEolicoMapper {
-
     ParqueEolicoListDTO parqueEolicoToParqueEolicoListDTO(ParqueEolico parqueEolico);
 }

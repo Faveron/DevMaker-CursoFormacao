@@ -1,4 +1,4 @@
-package br.com.ada.gerenciadorEolico.dto;
+package br.com.ada.Industria.eolica.dto;
 
 import lombok.Builder;
 import lombok.Getter;
