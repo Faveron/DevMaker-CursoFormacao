@@ -9,5 +9,4 @@ public class IndustriaEolicaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(IndustriaEolicaApplication.class, args);
 	}
-
 }
