@@ -1,6 +1,6 @@
-package br.com.ada.Industria.eolica.repository;
+package br.com.ada.gerenciadorEolico.repository;
 
-import br.com.ada.Industria.eolica.domain.ParqueEolico;
+import br.com.ada.gerenciadorEolico.domain.ParqueEolico;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
