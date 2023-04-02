@@ -16,4 +16,4 @@ a listagem, cadastro, edição e remoção de
 usuários, jogos e conquistas de um console utilizando o
 framework Spring Boot.
 
-![DER](Relação Entidades Projeto final.png)
+![Relação Entidades Projeto final.png](https://github.com/Faveron/DevMaker-CursoFormacao/blob/master/M%C3%B3dulo%20VI%20-%20PROGRAMA%C3%87%C3%83O%20WEB%20II/ProjetoWesleyFaveron/Rela%C3%A7%C3%A3o%20Entidades%20Projeto%20final.png)
