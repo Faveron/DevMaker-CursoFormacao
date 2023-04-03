@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping("parque-eolico")
 @RequiredArgsConstructor
 public class ParqueEolicoController {
+
     private final ParqueEolicoService service;
     private final ParqueEolicoMapper mapper;
 
@@ -21,6 +22,7 @@ public class ParqueEolicoController {
     public List<ParqueEolicoListDTO> list() {
         return service.list().stream().map(mapper::parqueEolicoToParqueEolicoListDTO).toList();
     }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

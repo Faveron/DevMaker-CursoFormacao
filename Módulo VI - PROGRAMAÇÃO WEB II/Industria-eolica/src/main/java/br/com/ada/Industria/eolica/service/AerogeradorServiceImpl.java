@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class AerogeradorServiceImpl implements AerogeradorService {
+
     private final AerogeradorRepository repository;
 
     public List<Aerogerador> list() {
@@ -20,7 +21,7 @@ public class AerogeradorServiceImpl implements AerogeradorService {
 
     @Override
     public Aerogerador save(Aerogerador aerogerador) {
-        if (repository.existsByNumeroSerie(aerogerador.getNumeroSerie())) {
+        if (repository.existsByNumeroSerie(aerogerador.getNumeroSerie())){
             throw new AerogeradorNumeroSerieException();
         }
         return repository.save(aerogerador);
@@ -47,4 +48,5 @@ public class AerogeradorServiceImpl implements AerogeradorService {
         }
         repository.deleteById(id);
     }
+
 }

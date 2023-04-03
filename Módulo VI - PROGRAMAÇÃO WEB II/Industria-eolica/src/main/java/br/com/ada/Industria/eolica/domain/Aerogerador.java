@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 public class Aerogerador {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
@@ -22,9 +23,9 @@ public class Aerogerador {
     private String numeroSerie;
 
     @Enumerated(EnumType.STRING)
-    private br.com.ada.Industria.eolica.domain.AerogeradorStatus status;
+    private AerogeradorStatus status;
     private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private br.com.ada.Industria.eolica.domain.ParqueEolico parqueEolico;
+    private ParqueEolico parqueEolico;
 }
