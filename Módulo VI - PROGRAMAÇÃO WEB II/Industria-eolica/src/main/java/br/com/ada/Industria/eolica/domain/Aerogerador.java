@@ -1,5 +1,6 @@
 package br.com.ada.Industria.eolica.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Aerogerador {
 
     @Id

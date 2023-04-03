@@ -14,6 +14,7 @@ public class AerogeradorSaveDTO {
 
     @NotBlank
     private String numeroSerie;
+
     @NotNull
     private AerogeradorStatus status;
 
