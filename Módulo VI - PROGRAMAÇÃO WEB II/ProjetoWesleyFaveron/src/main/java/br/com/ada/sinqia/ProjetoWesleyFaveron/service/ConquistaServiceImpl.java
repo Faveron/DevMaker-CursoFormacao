@@ -1,13 +1,13 @@
 package br.com.ada.sinqia.ProjetoWesleyFaveron.service;
 
 import br.com.ada.sinqia.ProjetoWesleyFaveron.domain.Conquista;
+import br.com.ada.sinqia.ProjetoWesleyFaveron.domain.ConquistaStatus;
 import br.com.ada.sinqia.ProjetoWesleyFaveron.exceptions.ConquistaExistenteException;
 import br.com.ada.sinqia.ProjetoWesleyFaveron.exceptions.ConquistaNaoEncontradaException;
 import br.com.ada.sinqia.ProjetoWesleyFaveron.repository.ConquistaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +20,7 @@ public class ConquistaServiceImpl implements ConquistaService {
         if (repository.existsByNome(conquista.getNome())) {
             throw new ConquistaExistenteException();
         }
+        conquista.setStatus(ConquistaStatus.NAO_CONQUISTA);
         return repository.save(conquista);
     }
 
@@ -30,6 +31,10 @@ public class ConquistaServiceImpl implements ConquistaService {
 
     @Override
     public Conquista update(Long id, Conquista conquista) {
+        if(conquista.getStatus().equals(ConquistaStatus.CONQUISTADO) && repository.existsById(id)){
+            conquista.setId(id);
+            return repository.save(conquista);
+        }
         if (repository.existsById(id)) {
             conquista.setId(id);
             return repository.save(conquista);
